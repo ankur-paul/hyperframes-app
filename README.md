@@ -293,7 +293,7 @@ npm run type-check
 
 ## Deployment
 
-This project is deployed on Render at: `<I'll add later>`
+This project is deployed on Render at: `https://hyperframes-app.onrender.com/`
 
 **⚠️ Render Free Tier Limitations:**
 Please note that due to the resource constraints of Render's free tier (RAM/CPU limits), rendering is heavily restricted. Currently, **only a couple of seconds of video can be successfully rendered** into `.webm` on the live deployment. Attempting to render longer videos is likely to result in memory limits being exceeded or process timeouts.
