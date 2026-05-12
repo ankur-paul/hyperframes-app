@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color Palette — Deep dark video-editor aesthetic */
+  --color-bg-primary: oklch(0.13 0.02 260);
+  --color-bg-secondary: oklch(0.16 0.02 260);
+  --color-bg-tertiary: oklch(0.20 0.02 260);
+  --color-bg-elevated: oklch(0.18 0.02 260);
+
+  --color-surface-glass: oklch(0.18 0.02 260 / 0.6);
+  --color-surface-hover: oklch(0.22 0.02 260);
+
+  --color-border-subtle: oklch(0.28 0.02 260);
+  --color-border-default: oklch(0.32 0.02 260);
+
+  --color-text-primary: oklch(0.95 0.01 260);
+  --color-text-secondary: oklch(0.70 0.01 260);
+  --color-text-muted: oklch(0.50 0.01 260);
+
+  --color-accent: oklch(0.65 0.25 275);
+  --color-accent-hover: oklch(0.70 0.28 275);
+  --color-accent-glow: oklch(0.65 0.25 275 / 0.3);
+
+  --color-success: oklch(0.70 0.18 155);
+  --color-warning: oklch(0.75 0.15 80);
+  --color-error: oklch(0.65 0.22 25);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Base styles */
+html, body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-subtle);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-default);
+}
+
+/* Glass panel effect */
+.glass-panel {
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border-subtle);
+}
+
+/* Glow effect for preview */
+.preview-glow {
+  box-shadow: 0 0 40px var(--color-accent-glow),
+              0 0 80px oklch(0.65 0.25 275 / 0.1);
+}
+
+/* Pulse animation for loading */
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.animate-subtle-pulse {
+  animation: subtle-pulse 2s ease-in-out infinite;
+}
+
+/* Slide in animation for messages */
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+/* Typing indicator dots */
+@keyframes bounce-dot {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+.typing-dot {
+  animation: bounce-dot 1.4s infinite ease-in-out both;
+}
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+.typing-dot:nth-child(3) { animation-delay: 0s; }
